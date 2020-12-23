@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{33AFE548-8BDC-4870-A923-925D995E70A6}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="excel-automation/Views/Home/Index.cshtml">
+    <Files>
+      <File FileName="excel-automation/Startup.cs" Line="26" Column="76" />
+      <File FileName="excel-automation/Views/Home/Index.cshtml" Line="11" Column="27" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="excel-automation" expanded="True">
+            <Node name="excel-automation" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.excel-automation PreferredExecutionTarget="/Applications/Opera.app" />
+</Properties>
