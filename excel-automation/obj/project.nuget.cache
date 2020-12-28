@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2YCDOQ2GcJ82WvE90UEe55pfZUyb9qSGzvFCVzJB8p/E4qsRuHGV8QuopajmGArBbzSXVXcLD/pXf8qU+eYBig==",
+  "dgSpecHash": "BS/y4sXl+fPzJZ5mU9ZCNPpTy03/2Wwyr9K3aPcIwI5abORtf7WcopKpiDfnOSJadPvTJGrOimKxdHnyj3Mmdw==",
   "success": true,
-  "projectFilePath": "/Users/davidbanda/Coding/excel-automation/excel-automation/excel-automation/excel-automation.csproj",
+  "projectFilePath": "/Users/davidbanda/Coding/excel-automation/excel-automation/excel-automation.csproj",
   "expectedPackageFiles": [
     "/Users/davidbanda/.nuget/packages/bouncycastle.netcore/1.8.3/bouncycastle.netcore.1.8.3.nupkg.sha512",
     "/Users/davidbanda/.nuget/packages/google.protobuf/3.11.4/google.protobuf.3.11.4.nupkg.sha512",

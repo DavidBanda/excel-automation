@@ -18,12 +18,8 @@ namespace excel_automation.Controllers
             _logger = logger;
         }
 
+        [HttpPost]
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }

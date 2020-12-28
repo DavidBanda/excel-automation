@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/davidbanda/Coding/excel-automation/excel-automation/excel-automation/excel-automation.csproj": {}
+    "/Users/davidbanda/Coding/excel-automation/excel-automation/excel-automation.csproj": {}
   },
   "projects": {
-    "/Users/davidbanda/Coding/excel-automation/excel-automation/excel-automation/excel-automation.csproj": {
+    "/Users/davidbanda/Coding/excel-automation/excel-automation/excel-automation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/davidbanda/Coding/excel-automation/excel-automation/excel-automation/excel-automation.csproj",
+        "projectUniqueName": "/Users/davidbanda/Coding/excel-automation/excel-automation/excel-automation.csproj",
         "projectName": "excel-automation",
-        "projectPath": "/Users/davidbanda/Coding/excel-automation/excel-automation/excel-automation/excel-automation.csproj",
+        "projectPath": "/Users/davidbanda/Coding/excel-automation/excel-automation/excel-automation.csproj",
         "packagesPath": "/Users/davidbanda/.nuget/packages/",
-        "outputPath": "/Users/davidbanda/Coding/excel-automation/excel-automation/excel-automation/obj/",
+        "outputPath": "/Users/davidbanda/Coding/excel-automation/excel-automation/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/davidbanda/.config/NuGet/NuGet.Config"

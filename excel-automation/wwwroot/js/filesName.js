@@ -1,12 +1,29 @@
-﻿const filesInput = document.querySelector('.custom-file-input');
-const labelFiles = document.querySelector('.custom-file-label')
+﻿// Input file name for excel files
 
-filesInput.addEventListener('change', (event) => {
+const filesInputExcel = document.querySelector('.custom-input-excel');
+const ExcelLabelFiles = document.querySelector('.custom-label-excel')
+
+filesInputExcel.addEventListener('change', (event) => {
     if (event.target.files.length == 1) {
-        labelFiles.innerText = event.target.files.item(0).name;
+        ExcelLabelFiles.innerText = event.target.files.item(0).name;
         return;
     }
 
     const filesNumber = event.target.files.length;
-    labelFiles.innerText = `${event.target.files.length} files(s) selected`
+    ExcelLabelFiles.innerText = `${event.target.files.length} files(s) selected`
+})
+
+// Input file name for template files
+
+const filesInputTemplate = document.querySelector('.custom-input-template');
+const TemplateLabelFiles = document.querySelector('.custom-label-template')
+
+filesInputTemplate.addEventListener('change', (event) => {
+    if (event.target.files.length == 1) {
+        TemplateLabelFiles.innerText = event.target.files.item(0).name;
+        return;
+    }
+
+    const filesNumber = event.target.files.length;
+    TemplateLabelFiles.innerText = `${event.target.files.length} files(s) selected`
 })

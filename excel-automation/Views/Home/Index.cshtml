@@ -4,41 +4,37 @@
 
 <br />
 
-<div class="col-9 pt-3 pb-3">
+<div class="col-9 pt-3 pb-4">
     <h2 class="title-page">Excel Automation</h2>
 </div>
 
 <div class="container mt-3">
-    <h4 class="title-page pb-2">Excel Files</h4>
+    <div class="container row p-0 m-0">
+        <div class="col-4 mr-3">
+            <h4 class="title-page pb-2">Excel Files</h4>
+        </div>
+        <div class="col-4">
+            <h4 class="title-page pb-2">Template Files</h4>
+        </div>
+    </div>
     <form method="post">
         <div class="container row p-0 m-0">
-            <div class="col-9 pt-3 pb-3">
-                <label class="custom-file-label" for="customFile">Choose excel file(s)</label>
-                <input type="file" class="custom-file-input form-control" id="customFile" multiple>
+            <div class="col-4 mr-3">
+                <label class="custom-label-excel custom-file-label" for="customFile">Choose excel file(s)</label>
+                <input type="file" class="custom-input-excel custom-file-input form-control" id="customFile" multiple>
             </div>
-            <div class="col-3 pb-3">
+            <div class="col-4">
+                <label class="custom-label-template custom-file-label" for="customFile">Choose template file(s)</label>
+                <input type="file" class="custom-input-template custom-file-input form-control" id="customFile" multiple>
+            </div>
+            <div class="col-3">
                 <button class="btn btn-page form-control text-white">Add file(s)</button>
             </div>
         </div>
     </form>
 </div>
 
-<div class="container mb-3">
-    <h4 class="title-page pb-2">Template Files</h4>
-    <form method="post">
-        <div class="container row p-0 m-0">
-            <div class="col-9 pt-3 pb-3">
-                <label class="custom-file-label" for="customFile">Choose template file(s)</label>
-                <input type="file" class="custom-file-input form-control" id="customFile" multiple>
-            </div>
-            <div class="col-3 pb-3">
-                <button class="btn btn-page form-control text-white">Add file(s)</button>
-            </div>
-        </div>
-    </form>
-</div>
-
-<div class="col-12 border p-3 pb-3 mb-4 mt-4">
+<div class="col-12 border p-3 pb-3 mb-4 mt-5">
     <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
