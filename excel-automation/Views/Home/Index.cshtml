@@ -17,18 +17,18 @@
             <h4 class="title-page pb-2">Template Files</h4>
         </div>
     </div>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Index">
         <div class="container row p-0 m-0">
-            <div class="col-4 mr-3">
+            <div class="excel-form form-group col-4 mr-3">
                 <label class="custom-label-excel custom-file-label" for="customFile">Choose excel file(s)</label>
-                <input type="file" class="custom-input-excel custom-file-input form-control" id="customFile" multiple>
+                <input type="file" name="excel" class="custom-input-excel custom-file-input form-control" multiple>
             </div>
-            <div class="col-4">
+            <div class="template-form form-group col-4">
                 <label class="custom-label-template custom-file-label" for="customFile">Choose template file(s)</label>
-                <input type="file" class="custom-input-template custom-file-input form-control" id="customFile" multiple>
+                <input type="file" name="template" class="custom-input-template custom-file-input form-control" multiple>
             </div>
-            <div class="col-3">
-                <button class="btn btn-page form-control text-white">Add file(s)</button>
+            <div class="form-group col-3">
+                <input type="submit" value="Upload file(s)" class="btn btn-page form-control text-white"></input>
             </div>
         </div>
     </form>

@@ -716,7 +716,6 @@
 /Users/davidbanda/Coding/excel-automation/excel-automation/bin/Debug/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll
 /Users/davidbanda/Coding/excel-automation/excel-automation/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
 /Users/davidbanda/Coding/excel-automation/excel-automation/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
-/Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.csprojAssemblyReference.cache
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.AssemblyInfoInputs.cache
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.AssemblyInfo.cs
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.csproj.CoreCompileInputs.cache
@@ -731,7 +730,6 @@
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.TagHelpers.output.cache
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.RazorCoreGenerate.cache
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
-/Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
@@ -744,3 +742,4 @@
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.dll
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.pdb
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.genruntimeconfig.cache
+/Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.csprojAssemblyReference.cache

@@ -57,10 +57,20 @@ a {
     background-color: #015289;
 }
 
+/*fit text inside the label*/
+.excel-form,
+.template-form {
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 @media (min-width: 768px) {
   html {

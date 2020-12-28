@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using excel_automation.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace excel_automation.Controllers
 {
@@ -18,9 +20,35 @@ namespace excel_automation.Controllers
             _logger = logger;
         }
 
-        [HttpPost]
         public IActionResult Index()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(List<IFormFile> excel, List<IFormFile> template)
+        {
+            foreach (var formFile in excel)
+            {
+                Console.WriteLine(formFile.FileName);
+                Console.WriteLine(formFile.ContentType);
+                Console.WriteLine(formFile.Name);
+                Console.WriteLine(formFile.Headers);
+                Console.WriteLine(formFile.ContentDisposition);
+                Console.WriteLine(formFile.Length);
+                Console.WriteLine();
+            }
+
+            foreach (var formFile in template)
+            {
+                Console.WriteLine(formFile.FileName);
+                Console.WriteLine(formFile.ContentType);
+                Console.WriteLine(formFile.Name);
+                Console.WriteLine(formFile.Headers);
+                Console.WriteLine(formFile.ContentDisposition);
+                Console.WriteLine(formFile.Length);
+                Console.WriteLine();
+            }
             return View();
         }
 
