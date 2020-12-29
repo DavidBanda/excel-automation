@@ -683,6 +683,9 @@
 /Users/davidbanda/Coding/excel-automation/excel-automation/bin/Debug/netcoreapp3.1/MySql.Data.EntityFrameworkCore.dll
 /Users/davidbanda/Coding/excel-automation/excel-automation/bin/Debug/netcoreapp3.1/Renci.SshNet.dll
 /Users/davidbanda/Coding/excel-automation/excel-automation/bin/Debug/netcoreapp3.1/SshNet.Security.Cryptography.dll
+/Users/davidbanda/Coding/excel-automation/excel-automation/bin/Debug/netcoreapp3.1/Syncfusion.Compression.Portable.dll
+/Users/davidbanda/Coding/excel-automation/excel-automation/bin/Debug/netcoreapp3.1/Syncfusion.Licensing.dll
+/Users/davidbanda/Coding/excel-automation/excel-automation/bin/Debug/netcoreapp3.1/Syncfusion.XlsIO.Portable.dll
 /Users/davidbanda/Coding/excel-automation/excel-automation/bin/Debug/netcoreapp3.1/System.Collections.Immutable.dll
 /Users/davidbanda/Coding/excel-automation/excel-automation/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
 /Users/davidbanda/Coding/excel-automation/excel-automation/bin/Debug/netcoreapp3.1/System.Diagnostics.DiagnosticSource.dll
@@ -742,4 +745,3 @@
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.dll
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.pdb
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.genruntimeconfig.cache
-/Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.csprojAssemblyReference.cache

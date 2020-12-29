@@ -1,26 +1,19 @@
 ﻿<Properties StartupConfiguration="{33AFE548-8BDC-4870-A923-925D995E70A6}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="excel-automation/wwwroot/css/site.css">
+  <MonoDevelop.Ide.Workbench ActiveDocument="excel-automation/Controllers/HomeController.cs">
     <Files>
-      <File FileName="excel-automation/Startup.cs" Line="26" Column="76" />
+      <File FileName="excel-automation/Startup.cs" Line="23" Column="49" />
       <File FileName="excel-automation/Views/Home/Index.cshtml" />
-      <File FileName="excel-automation/Controllers/HomeController.cs" />
+      <File FileName="excel-automation/Controllers/HomeController.cs" Line="53" Column="10" />
       <File FileName="excel-automation/wwwroot/js/filesName.js" />
-      <File FileName="excel-automation/wwwroot/css/site.css" Line="61" Column="41" />
+      <File FileName="excel-automation/wwwroot/css/site.css" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="excel-automation" expanded="True">
             <Node name="excel-automation" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True" />
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True">
-                  <Node name="site.css" selected="True" />
-                </Node>
-                <Node name="js" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="HomeController.cs" selected="True" />
               </Node>
             </Node>
           </Node>
