@@ -1,19 +1,27 @@
 ﻿<Properties StartupConfiguration="{33AFE548-8BDC-4870-A923-925D995E70A6}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="excel-automation/Controllers/HomeController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="excel-automation/wwwroot/js/inputLabels.js">
     <Files>
       <File FileName="excel-automation/Startup.cs" Line="23" Column="49" />
-      <File FileName="excel-automation/Views/Home/Index.cshtml" />
-      <File FileName="excel-automation/Controllers/HomeController.cs" Line="49" Column="59" />
-      <File FileName="excel-automation/wwwroot/js/filesName.js" />
-      <File FileName="excel-automation/wwwroot/css/site.css" />
+      <File FileName="excel-automation/Views/Home/Index.cshtml" Line="54" Column="1" />
+      <File FileName="excel-automation/Controllers/HomeController.cs" Line="29" Column="37" />
+      <File FileName="excel-automation/wwwroot/js/inputLabels.js" Line="15" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="excel-automation" expanded="True">
             <Node name="excel-automation" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="HomeController.cs" selected="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
+                <Node name="js" expanded="True">
+                  <Node name="inputLabels.js" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
