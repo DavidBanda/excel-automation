@@ -25,29 +25,29 @@
             </div>
             <div class="template-form form-group col-4">
                 <label class="custom-label-template custom-file-label" for="customFile">Choose template file(s)</label>
-                <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" type="file" name="template" class="custom-input-template custom-file-input form-control" required multiple>
+                <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" type="file" name="template" class="custom-input-template custom-file-input form-control" required>
             </div>
             <div class="form-group col-3">
-                <button class="btn btn-page form-control text-white">Add file(s)</button>
+                <button class="upload-button btn btn-page form-control text-white" disabled>Upload file(s)</button>
             </div>
         </div>
     </form>
 </div>
 
-<div class="col-12 border p-3 pb-3 mb-4 mt-5">
+<div class="divTable col-12 border p-3 pb-3 mb-4 mt-5" hidden>
     <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>File Name</th>
-                <th>Columns</th>
-                <th>Actions</th>
             </tr>
         </thead>
     </table>
 </div>
 
+<textarea class="form-control" rows=35 cols=120 id="xlx_json"></textarea>
+
 @section Scripts
 {
     <script src="~/js/inputLabels.js"></script>
+    <script src="~/js/manageExcelFiles.js"></script>
     <partial name="_ValidationScriptsPartial" />
 }
