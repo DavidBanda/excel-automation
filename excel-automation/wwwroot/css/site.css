@@ -66,6 +66,14 @@ a {
     overflow: hidden;
 }
 
+/*table properties*/
+.custom-select {
+    width: 7rem;
+}
+
+.divTableLink {
+    overflow-x: auto;
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */

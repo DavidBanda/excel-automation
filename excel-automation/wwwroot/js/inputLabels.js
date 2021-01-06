@@ -25,13 +25,11 @@ const TemplateLabelFiles = document.querySelector('.custom-label-template');
 filesInputTemplate.addEventListener('change', (event) => {
     const filesNumber = event.target.files.length;
 
-    if (filesNumber == 1) {
+    if (filesNumber >= 1) {
         TemplateLabelFiles.innerText = event.target.files.item(0).name;
         return;
-    } else if (filesNumber == 0) {
+    } else {
         ExcelLabelFiles.innerText = "Choose template file(s)";
         return;
     }
-
-    TemplateLabelFiles.innerText = `${filesNumber} file(s) selected`;
 })

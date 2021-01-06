@@ -14,39 +14,47 @@
             <h4 class="title-page pb-2">Excel Files</h4>
         </div>
         <div class="col-4">
-            <h4 class="title-page pb-2">Template Files</h4>
+            <h4 class="title-page pb-2">Template File</h4>
         </div>
     </div>
-    <form enctype="multipart/form-data">
-        <div class="container row p-0 m-0">
-            <div class="excel-form form-group col-4 mr-3">
-                <label class="custom-label-excel custom-file-label" for="customFile">Choose excel file(s)</label>
-                <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" type="file" name="excel" class="custom-input-excel custom-file-input form-control" required multiple>
-            </div>
-            <div class="template-form form-group col-4">
-                <label class="custom-label-template custom-file-label" for="customFile">Choose template file(s)</label>
-                <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" type="file" name="template" class="custom-input-template custom-file-input form-control" required>
-            </div>
-            <div class="form-group col-3">
-                <button class="upload-button btn btn-page form-control text-white" disabled>Upload file(s)</button>
-            </div>
+    <div class="container row p-0 m-0">
+        <div class="excel-form form-group col-4 mr-3">
+            <label class="custom-label-excel custom-file-label" for="customFile">Choose excel file(s)</label>
+            <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" type="file" name="excel" class="custom-input-excel custom-file-input form-control" required multiple>
         </div>
-    </form>
+        <div class="template-form form-group col-4">
+            <label class="custom-label-template custom-file-label" for="customFile">Choose template file</label>
+            <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" type="file" name="template" class="custom-input-template custom-file-input form-control" required>
+        </div>
+        <div class="form-group col-3">
+            <button class="upload-button btn btn-page form-control text-white" disabled>Render file(s)</button>
+        </div>
+    </div>
 </div>
 
-<div class="divTable col-12 border p-3 pb-3 mb-4 mt-5" hidden>
-    <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
+<div class="divTableLink col-12 border p-3 pb-3 mb-4 mt-4" hidden>
+    <div class="col-4">
+        <h4 class="title-page pb-2">Template File</h4>
+    </div>
+    <table id="tableLink" class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th hidden></th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td hidden></td>
             </tr>
         </tbody>
     </table>
+</div>
+<div class="renderTableDiv container row p-0 m-0" hidden>
+    <div class="container row p-0 m-0">
+        <div class="col-4 mr-3">
+        </div>
+        <div class="col-4">
+            <button class="btn btn-page form-control text-white">Render table</button>
+        </div>
+    </div>
 </div>
 
 @section Scripts

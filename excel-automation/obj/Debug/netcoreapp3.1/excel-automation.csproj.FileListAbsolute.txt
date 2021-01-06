@@ -745,3 +745,4 @@
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.dll
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.pdb
 /Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.genruntimeconfig.cache
+/Users/davidbanda/Coding/excel-automation/excel-automation/obj/Debug/netcoreapp3.1/excel-automation.csprojAssemblyReference.cache

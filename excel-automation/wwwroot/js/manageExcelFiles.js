@@ -1,33 +1,58 @@
 ﻿const uploadButton = document.querySelector('.upload-button');
-const divTable = document.querySelector('.divTable');
-const dataTable = document.querySelector('#DT_load');
+const btnAddColumn = document.querySelector('#addColumn');
+const divTableLink = document.querySelector('.divTableLink');
+const renderTableDiv = document.querySelector('.renderTableDiv');
 
-filesInputExcel.addEventListener('change', handleFileSelect, false);
-filesInputTemplate.addEventListener('change', loadColumnsDT, false);
+filesInputExcel.addEventListener('change', excelVerifyFiles, false);
+filesInputTemplate.addEventListener('change', templateVerifyFiles, false);
+uploadButton.addEventListener('click', processData);
 
+let excelVerify = false;
+let templateVerify = false;
+let excelFiles;
+let templateFiles;
 
-function loadColumnsDT(evt) {
-    divTable.hidden = false;
-    $('#DT_load').DataTable({
-        "scrollX": true,
-    });
-    handleFileSelect(evt);
+function processData() {
+    divTableLink.hidden = false;
+    renderTableDiv.hidden = false;
+    handleFileSelect(templateFiles);
+    handleFileSelect(excelFiles);
 }
 
-function handleFileSelect(evt) {
+function excelVerifyFiles(evt) {
+    excelVerify = true;
+    excelFiles = evt;
+    enableRenderButton();
+};
+
+function templateVerifyFiles(evt) {
+    templateVerify = true;
+    templateFiles = evt;
+    enableRenderButton();
+};
+
+function enableRenderButton() {
+    if (excelVerify && templateVerify) {
+        uploadButton.disabled = false;
+    }
+}
+
+function handleFileSelect(file) {
 
     //Validate whether File is valid Excel file.
-    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xls|.xlsx)$/;
-    if (regex.test(evt.target.value.toLowerCase())) {
+
+    console.log(file.target.value.toLowerCase());
+    var regex = /^([a-zA-Z0-9\s_\\.,\-:])+(.xls|.xlsx)$/;
+    if (regex.test(file.target.value.toLowerCase())) {
         if (typeof (FileReader) != "undefined") {
             var reader = new FileReader();
 
             //For Browsers other than IE.
             if (reader.readAsBinaryString) {
                 reader.onload = function (e) {
-                    ProcessExcel(e.target.result, evt.target.className);
+                    ProcessExcel(e.target.result, file.target.className);
                 };
-                reader.readAsBinaryString(evt.target.files[0]);
+                reader.readAsBinaryString(file.target.files[0]);
             } else {
                 //For IE Browser.
                 reader.onload = function (e) {
@@ -36,9 +61,9 @@ function handleFileSelect(evt) {
                     for (var i = 0; i < bytes.byteLength; i++) {
                         data += String.fromCharCode(bytes[i]);
                     }
-                    ProcessExcel(data, evt.target.className);
+                    ProcessExcel(data, file.target.className);
                 };
-                reader.readAsArrayBuffer(evt.target.files[0]);
+                reader.readAsArrayBuffer(file.target.files[0]);
             }
         } else {
             alert("This browser does not support HTML5.");
@@ -56,24 +81,51 @@ function ProcessExcel(data, fileInputName) {
 
     if (fileInputName.includes("custom-input-template")) {
         for (var key of workbook.Strings) {
-            $("#DT_load>thead>tr").append(`<th>${key['t']}</th>`);
-            $("#DT_load>tbody>tr").append(`<td>
-                                             <div class="col-auto mx-5">
-                                               <select class="custom-select mr-5" id="inlineFormCustomSelect">
-                                                 <option selected>Columns</option>
-                                               </select>
-                                             </div>
-                                           </td>`);
+            addColumn(key['t']);
         }
         return;
     }
 
-    ////Fetch the name of First Sheet.
-    var firstSheet = workbook.SheetNames[0];
+    //Fetch the name of First Sheet.
+    var firstSheet = workbook.SheetNames[1];
 
     //Read all rows from First Sheet into an JSON array.
 
     var excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[firstSheet]);
-    ////console.log(Object.keys(excelRows[0]));
+
+    Object.keys(excelRows[0]).forEach(function (key) {
+        console.log(key);
+    });
 
 };
+
+function addColumn(columnName) {
+    [...document.querySelectorAll('#tableLink tr')].forEach((row, i) => {
+        const cell = document.createElement(i ? "td" : "th");
+        if (i === 0) {
+            cell.append(columnName);
+        } else {
+            cell.appendChild(createComponent());
+        }
+        row.appendChild(cell);
+    });
+}
+
+let createComponent = () => {
+    const div = document.createElement("div");
+    div.setAttribute("class", "col-auto");
+    const select = document.createElement("select");
+    select.setAttribute("class", "custom-select");
+    const option = document.createElement("option");
+    option.append("Choose");
+
+    select.appendChild(option);
+    select.appendChild(option2);
+    div.appendChild(select);
+
+    return div
+}
+
+let createOptionsComponent = () => {
+
+}
