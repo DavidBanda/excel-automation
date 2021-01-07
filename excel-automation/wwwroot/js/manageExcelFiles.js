@@ -11,12 +11,18 @@ let excelVerify = false;
 let templateVerify = false;
 let excelFiles;
 let templateFiles;
+let columnsFilesName = [];
+let nameFile;
 
-function processData() {
+async function processData() {
     divTableLink.hidden = false;
     renderTableDiv.hidden = false;
-    handleFileSelect(templateFiles);
-    handleFileSelect(excelFiles);
+
+    console.log(0);
+    for (let i = 0; i < excelFiles.target.files.length; i++) {
+        await handleFileSelect(excelFiles.target.files[i], excelFiles.target.className, excelFiles.target.files[i].name);
+    }
+    console.log(2);
 }
 
 function excelVerifyFiles(evt) {
@@ -37,40 +43,41 @@ function enableRenderButton() {
     }
 }
 
-function handleFileSelect(file) {
+function handleFileSelect(file, className, fileName) {
 
-    //Validate whether File is valid Excel file.
+    return new Promise(resolve => {
+        //Validate whether File is valid Excel file.
+        var regex = /^([a-zA-Z0-9\s_\\.,\-:])+(.xls|.xlsx)$/;
+        if (regex.test(fileName.toLowerCase())) {
+            if (typeof (FileReader) != "undefined") {
+                var reader = new FileReader();
 
-    console.log(file.target.value.toLowerCase());
-    var regex = /^([a-zA-Z0-9\s_\\.,\-:])+(.xls|.xlsx)$/;
-    if (regex.test(file.target.value.toLowerCase())) {
-        if (typeof (FileReader) != "undefined") {
-            var reader = new FileReader();
-
-            //For Browsers other than IE.
-            if (reader.readAsBinaryString) {
-                reader.onload = function (e) {
-                    ProcessExcel(e.target.result, file.target.className);
-                };
-                reader.readAsBinaryString(file.target.files[0]);
+                //For Browsers other than IE.
+                if (reader.readAsBinaryString) {
+                    reader.onload = function (e) {
+                        resolve(ProcessExcel(e.target.result, className));
+                    };
+                    reader.readAsBinaryString(file);
+                } else {
+                    //For IE Browser.
+                    reader.onload = function (e) {
+                        var data = "";
+                        var bytes = new Uint8Array(e.target.result);
+                        for (var i = 0; i < bytes.byteLength; i++) {
+                            data += String.fromCharCode(bytes[i]);
+                        }
+                        resolve(ProcessExcel(data, className));
+                    };
+                    reader.readAsArrayBuffer(file);
+                }
             } else {
-                //For IE Browser.
-                reader.onload = function (e) {
-                    var data = "";
-                    var bytes = new Uint8Array(e.target.result);
-                    for (var i = 0; i < bytes.byteLength; i++) {
-                        data += String.fromCharCode(bytes[i]);
-                    }
-                    ProcessExcel(data, file.target.className);
-                };
-                reader.readAsArrayBuffer(file.target.files[0]);
+                alert("This browser does not support HTML5.");
             }
         } else {
-            alert("This browser does not support HTML5.");
+            console.log(fileName);
+            alert("Please upload a valid Excel file.");
         }
-    } else {
-        alert("Please upload a valid Excel file.");
-    }
+    });
 }
 
 function ProcessExcel(data, fileInputName) {
@@ -83,6 +90,8 @@ function ProcessExcel(data, fileInputName) {
         for (var key of workbook.Strings) {
             addColumn(key['t']);
         }
+        columnsFilesName = [];
+        nameFile = "";
         return;
     }
 
@@ -93,9 +102,14 @@ function ProcessExcel(data, fileInputName) {
 
     var excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[firstSheet]);
 
+    nameFile = workbook.SheetNames[1];
     Object.keys(excelRows[0]).forEach(function (key) {
-        console.log(key);
+        columnsFilesName.push(key);
     });
+
+    console.log("1");
+
+    handleFileSelect(templateFiles.target.files[0], templateFiles.target.className, templateFiles.target.value);
 
 };
 
@@ -116,16 +130,17 @@ let createComponent = () => {
     div.setAttribute("class", "col-auto");
     const select = document.createElement("select");
     select.setAttribute("class", "custom-select");
-    const option = document.createElement("option");
-    option.append("Choose");
+    const optgroup = document.createElement("optgroup");
+    optgroup.setAttribute("label", nameFile);
 
-    select.appendChild(option);
-    select.appendChild(option2);
+    for (const value of columnsFilesName) {
+        const option = document.createElement("option");
+        option.append(value);
+        optgroup.appendChild(option);
+    }
+
+    select.appendChild(optgroup);
     div.appendChild(select);
 
     return div
-}
-
-let createOptionsComponent = () => {
-
 }
