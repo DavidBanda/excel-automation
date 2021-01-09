@@ -120,3 +120,41 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/*Responsive */
+
+/* tablets */
+@media only screen and (min-width: 600px) {
+
+    .container-bg {
+        position: fixed;
+        z-index: -1;
+        bottom: -2rem;
+        left: -1rem;
+    }
+
+    .img-bg {
+        max-width: 40%;
+        height: auto;
+    }
+
+    .upload-button {
+        width: 8rem;
+    }
+}
+
+/* ipads - desktop */
+@media only screen and (min-width: 768px) {
+    .container-bg {
+        position: fixed;
+        z-index: -1;
+        bottom: -2rem;
+        left: -1rem;
+    }
+
+    .img-bg {
+        max-width: 35%;
+        height: auto;
+    }
+}
+
