@@ -11,18 +11,16 @@ let excelVerify = false;
 let templateVerify = false;
 let excelFiles;
 let templateFiles;
-let columnsFilesName = [];
-let nameFile;
+let filesData = {};
 
 async function processData() {
-    divTableLink.hidden = false;
-    renderTableDiv.hidden = false;
 
-    console.log(0);
     for (let i = 0; i < excelFiles.target.files.length; i++) {
         await handleFileSelect(excelFiles.target.files[i], excelFiles.target.className, excelFiles.target.files[i].name);
     }
-    console.log(2);
+    handleFileSelect(templateFiles.target.files[0], templateFiles.target.className, templateFiles.target.value);
+    divTableLink.hidden = false;
+    renderTableDiv.hidden = false;
 }
 
 function excelVerifyFiles(evt) {
@@ -74,7 +72,6 @@ function handleFileSelect(file, className, fileName) {
                 alert("This browser does not support HTML5.");
             }
         } else {
-            console.log(fileName);
             alert("Please upload a valid Excel file.");
         }
     });
@@ -90,26 +87,22 @@ function ProcessExcel(data, fileInputName) {
         for (var key of workbook.Strings) {
             addColumn(key['t']);
         }
-        columnsFilesName = [];
-        nameFile = "";
         return;
     }
 
-    //Fetch the name of First Sheet.
-    var firstSheet = workbook.SheetNames[1];
+    for (let sheetNumber = 0; sheetNumber < workbook.SheetNames.length; sheetNumber++) {
+        //Fetch the name of First Sheet.
+        var firstSheet = workbook.SheetNames[sheetNumber];
 
-    //Read all rows from First Sheet into an JSON array.
+        //Read all rows from First Sheet into an JSON array.
+        var excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[firstSheet]);
 
-    var excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[firstSheet]);
+        filesData[firstSheet] = [];
+        Object.keys(excelRows[0]).forEach(function (key) {
+            filesData[firstSheet].push(key);
+        });
+    }
 
-    nameFile = workbook.SheetNames[1];
-    Object.keys(excelRows[0]).forEach(function (key) {
-        columnsFilesName.push(key);
-    });
-
-    console.log("1");
-
-    handleFileSelect(templateFiles.target.files[0], templateFiles.target.className, templateFiles.target.value);
 
 };
 
@@ -130,16 +123,20 @@ let createComponent = () => {
     div.setAttribute("class", "col-auto");
     const select = document.createElement("select");
     select.setAttribute("class", "custom-select");
-    const optgroup = document.createElement("optgroup");
-    optgroup.setAttribute("label", nameFile);
 
-    for (const value of columnsFilesName) {
-        const option = document.createElement("option");
-        option.append(value);
-        optgroup.appendChild(option);
+    for (const key of Object.keys(filesData)) {
+        const optgroup = document.createElement("optgroup");
+        optgroup.setAttribute("label", key);
+
+        for (const value of filesData[key]) {
+            const option = document.createElement("option");
+            option.append(value);
+            optgroup.appendChild(option);
+        }
+        select.appendChild(optgroup);
     }
 
-    select.appendChild(optgroup);
+
     div.appendChild(select);
 
     return div
