@@ -1,5 +1,6 @@
 ﻿let excelFiles;
 let templateFiles;
+let filesObject = [];
 let filesData = {};
 
 function handleFileSelect(file, inputFileName, fileName) {
@@ -60,6 +61,11 @@ function ProcessExcel(data, inputFileName) {
         Object.keys(excelRows[0]).forEach(function (key) {
             filesData[firstSheet].push(key);
         });
+
+        const fileObj = {}
+        fileObj[firstSheet] = filesData[firstSheet]
+
+        filesObject.push(fileObj);
     }
 };
 

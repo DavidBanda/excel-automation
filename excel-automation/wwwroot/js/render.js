@@ -28,6 +28,8 @@ async function processData() {
     }
     //process template files
     handleFileSelect(templateFiles.target.files[0], templateFiles.target.className, templateFiles.target.value);
+    console.log(filesObject);
+    console.log(filesObject[0]);
     document.querySelector('.divTableLink').hidden = false;
     document.querySelector('.renderTableDiv').hidden = false;
 }

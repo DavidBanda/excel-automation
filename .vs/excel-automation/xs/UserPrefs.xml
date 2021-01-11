@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{33AFE548-8BDC-4870-A923-925D995E70A6}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="excel-automation/wwwroot/js/Components.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="excel-automation/wwwroot/js/render.js">
     <Files>
-      <File FileName="excel-automation/wwwroot/js/manageExcelFiles.js" Line="48" Column="9" />
-      <File FileName="excel-automation/wwwroot/js/Components.js" Line="2" Column="18" />
+      <File FileName="excel-automation/wwwroot/js/manageExcelFiles.js" Line="45" Column="23" />
+      <File FileName="excel-automation/wwwroot/js/render.js" Line="31" Column="12" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,7 +18,7 @@
               <Node name="wwwroot" expanded="True">
                 <Node name="css" expanded="True" />
                 <Node name="js" expanded="True">
-                  <Node name="Components.js" selected="True" />
+                  <Node name="render.js" selected="True" />
                 </Node>
               </Node>
             </Node>
