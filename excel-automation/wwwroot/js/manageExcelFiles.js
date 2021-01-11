@@ -1,9 +1,8 @@
 ﻿let excelFiles;
 let templateFiles;
-let filesObject = [];
-let filesData = {};
+const filesObj = {};
 
-function handleFileSelect(file, inputFileName, fileName) {
+function handleFileSelect(file, inputName, fileName) {
 
     return new Promise(resolve => {
         //Validate whether File is valid Excel file.
@@ -15,7 +14,7 @@ function handleFileSelect(file, inputFileName, fileName) {
                 //For Browsers other than IE.
                 if (reader.readAsBinaryString) {
                     reader.onload = function (e) {
-                        resolve(ProcessExcel(e.target.result, inputFileName));
+                        resolve(ProcessExcel(e.target.result, inputName, fileName));
                     };
                     reader.readAsBinaryString(file);
                 } else {
@@ -26,7 +25,7 @@ function handleFileSelect(file, inputFileName, fileName) {
                         for (var i = 0; i < bytes.byteLength; i++) {
                             data += String.fromCharCode(bytes[i]);
                         }
-                        resolve(ProcessExcel(data, inputFileName));
+                        resolve(ProcessExcel(data, inputName, fileName));
                     };
                     reader.readAsArrayBuffer(file);
                 }
@@ -39,17 +38,18 @@ function handleFileSelect(file, inputFileName, fileName) {
     });
 }
 
-function ProcessExcel(data, inputFileName) {
+function ProcessExcel(data, inputName, fileName) {
     //Read the Excel File data.
     var workbook = XLSX.read(data, {
         type: 'binary'
     });
 
-    if (inputFileName.includes("custom-input-template")) {
+    if (inputName.includes("custom-input-template")) {
         createColumns(workbook.Strings);
         return;
     }
 
+    filesObj[fileName] = {};
     for (let sheetNumber = 0; sheetNumber < workbook.SheetNames.length; sheetNumber++) {
         //Fetch the name of First Sheet.
         var firstSheet = workbook.SheetNames[sheetNumber];
@@ -57,15 +57,15 @@ function ProcessExcel(data, inputFileName) {
         //Read all rows from First Sheet into an JSON array.
         var excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[firstSheet]);
 
-        filesData[firstSheet] = [];
+        const filesData = [];
+
+        filesObj[fileName][firstSheet] = [];
         Object.keys(excelRows[0]).forEach(function (key) {
-            filesData[firstSheet].push(key);
+            filesData.push(key);
         });
 
-        const fileObj = {}
-        fileObj[firstSheet] = filesData[firstSheet]
+        filesObj[fileName][firstSheet] = filesData;
 
-        filesObject.push(fileObj);
     }
 };
 

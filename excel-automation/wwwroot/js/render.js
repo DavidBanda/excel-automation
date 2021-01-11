@@ -26,10 +26,9 @@ async function processData() {
         //process excel files
         await handleFileSelect(excelFiles.target.files[i], excelFiles.target.className, excelFiles.target.files[i].name);
     }
+    console.log(filesObj);
     //process template files
-    handleFileSelect(templateFiles.target.files[0], templateFiles.target.className, templateFiles.target.value);
-    console.log(filesObject);
-    console.log(filesObject[0]);
+    handleFileSelect(templateFiles.target.files[0], templateFiles.target.className, templateFiles.target.files[0].name);
     document.querySelector('.divTableLink').hidden = false;
     document.querySelector('.renderTableDiv').hidden = false;
 }

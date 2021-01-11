@@ -22,18 +22,19 @@ let optionsComponent = () => {
     const select = document.createElement("select");
     select.setAttribute("class", "custom-select");
 
-    for (const key of Object.keys(filesData)) {
-        const optgroup = document.createElement("optgroup");
-        optgroup.setAttribute("label", key);
+    for (const fileName of Object.keys(filesObj)) {
+        for (const key of Object.keys(filesObj[fileName])) {
+            const optgroup = document.createElement("optgroup");
+            optgroup.setAttribute("label", key);
 
-        for (const value of filesData[key]) {
-            const option = document.createElement("option");
-            option.append(value);
-            optgroup.appendChild(option);
+            for (const value of filesObj[fileName][key]) {
+                const option = document.createElement("option");
+                option.append(value);
+                optgroup.appendChild(option);
+            }
+            select.appendChild(optgroup);
         }
-        select.appendChild(optgroup);
     }
-
 
     div.appendChild(select);
 
