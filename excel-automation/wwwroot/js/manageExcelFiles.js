@@ -1,47 +1,8 @@
-﻿const uploadButton = document.querySelector('.upload-button');
-const btnAddColumn = document.querySelector('#addColumn');
-const divTableLink = document.querySelector('.divTableLink');
-const renderTableDiv = document.querySelector('.renderTableDiv');
-
-filesInputExcel.addEventListener('change', excelVerifyFiles, false);
-filesInputTemplate.addEventListener('change', templateVerifyFiles, false);
-uploadButton.addEventListener('click', processData);
-
-let excelVerify = false;
-let templateVerify = false;
-let excelFiles;
+﻿let excelFiles;
 let templateFiles;
 let filesData = {};
 
-async function processData() {
-
-    for (let i = 0; i < excelFiles.target.files.length; i++) {
-        await handleFileSelect(excelFiles.target.files[i], excelFiles.target.className, excelFiles.target.files[i].name);
-    }
-    handleFileSelect(templateFiles.target.files[0], templateFiles.target.className, templateFiles.target.value);
-    divTableLink.hidden = false;
-    renderTableDiv.hidden = false;
-}
-
-function excelVerifyFiles(evt) {
-    excelVerify = true;
-    excelFiles = evt;
-    enableRenderButton();
-};
-
-function templateVerifyFiles(evt) {
-    templateVerify = true;
-    templateFiles = evt;
-    enableRenderButton();
-};
-
-function enableRenderButton() {
-    if (excelVerify && templateVerify) {
-        uploadButton.disabled = false;
-    }
-}
-
-function handleFileSelect(file, className, fileName) {
+function handleFileSelect(file, inputFileName, fileName) {
 
     return new Promise(resolve => {
         //Validate whether File is valid Excel file.
@@ -53,7 +14,7 @@ function handleFileSelect(file, className, fileName) {
                 //For Browsers other than IE.
                 if (reader.readAsBinaryString) {
                     reader.onload = function (e) {
-                        resolve(ProcessExcel(e.target.result, className));
+                        resolve(ProcessExcel(e.target.result, inputFileName));
                     };
                     reader.readAsBinaryString(file);
                 } else {
@@ -64,7 +25,7 @@ function handleFileSelect(file, className, fileName) {
                         for (var i = 0; i < bytes.byteLength; i++) {
                             data += String.fromCharCode(bytes[i]);
                         }
-                        resolve(ProcessExcel(data, className));
+                        resolve(ProcessExcel(data, inputFileName));
                     };
                     reader.readAsArrayBuffer(file);
                 }
@@ -77,16 +38,14 @@ function handleFileSelect(file, className, fileName) {
     });
 }
 
-function ProcessExcel(data, fileInputName) {
+function ProcessExcel(data, inputFileName) {
     //Read the Excel File data.
     var workbook = XLSX.read(data, {
         type: 'binary'
     });
 
-    if (fileInputName.includes("custom-input-template")) {
-        for (var key of workbook.Strings) {
-            addColumn(key['t']);
-        }
+    if (inputFileName.includes("custom-input-template")) {
+        createColumns(workbook.Strings);
         return;
     }
 
@@ -102,42 +61,5 @@ function ProcessExcel(data, fileInputName) {
             filesData[firstSheet].push(key);
         });
     }
-
-
 };
 
-function addColumn(columnName) {
-    [...document.querySelectorAll('#tableLink tr')].forEach((row, i) => {
-        const cell = document.createElement(i ? "td" : "th");
-        if (i === 0) {
-            cell.append(columnName);
-        } else {
-            cell.appendChild(createComponent());
-        }
-        row.appendChild(cell);
-    });
-}
-
-let createComponent = () => {
-    const div = document.createElement("div");
-    div.setAttribute("class", "col-auto");
-    const select = document.createElement("select");
-    select.setAttribute("class", "custom-select");
-
-    for (const key of Object.keys(filesData)) {
-        const optgroup = document.createElement("optgroup");
-        optgroup.setAttribute("label", key);
-
-        for (const value of filesData[key]) {
-            const option = document.createElement("option");
-            option.append(value);
-            optgroup.appendChild(option);
-        }
-        select.appendChild(optgroup);
-    }
-
-
-    div.appendChild(select);
-
-    return div
-}

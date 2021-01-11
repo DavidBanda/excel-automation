@@ -1,11 +1,8 @@
 ﻿<Properties StartupConfiguration="{33AFE548-8BDC-4870-A923-925D995E70A6}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="excel-automation/wwwroot/css/site.css">
+  <MonoDevelop.Ide.Workbench ActiveDocument="excel-automation/wwwroot/js/Components.js">
     <Files>
-      <File FileName="excel-automation/Startup.cs" Line="23" Column="49" />
-      <File FileName="excel-automation/Views/Home/Index.cshtml" Line="56" Column="15" />
-      <File FileName="excel-automation/wwwroot/js/manageExcelFiles.js" Line="46" Column="5" />
-      <File FileName="excel-automation/wwwroot/js/inputLabels.js" Line="31" Column="11" />
-      <File FileName="excel-automation/wwwroot/css/site.css" Line="71" Column="14" />
+      <File FileName="excel-automation/wwwroot/js/manageExcelFiles.js" Line="48" Column="9" />
+      <File FileName="excel-automation/wwwroot/js/Components.js" Line="2" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,10 +16,10 @@
                 <Node name="Shared" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True">
-                  <Node name="site.css" selected="True" />
+                <Node name="css" expanded="True" />
+                <Node name="js" expanded="True">
+                  <Node name="Components.js" selected="True" />
                 </Node>
-                <Node name="js" expanded="True" />
               </Node>
             </Node>
           </Node>
