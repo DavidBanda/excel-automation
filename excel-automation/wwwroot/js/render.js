@@ -28,6 +28,8 @@ async function processData() {
     }
     //process template file
     handleFileSelect(templateFiles.target.files[0], templateFiles.target.className, templateFiles.target.files[0].name);
+
+    toastr["success"]("The files has been uploaded successfully!")
     document.querySelector('.divTableLink').hidden = false;
     document.querySelector('.renderTableDiv').hidden = false;
 }
