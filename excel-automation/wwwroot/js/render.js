@@ -1,4 +1,5 @@
 ﻿const renderButton = document.querySelector('#render-button');
+const dataTable = document.getElementById('data-table');
 const originalColumnTable = document.getElementById("table-link").innerHTML;
 
 inputExcelFiles.addEventListener('change', addExcelFiles, false);
@@ -27,7 +28,7 @@ async function processData() {
         document.querySelector('#div-table-link').hidden = true;
         document.querySelector('#render-table-div').hidden = true;
         document.getElementById("table-link").innerHTML = originalColumnTable;
-        filesObj = {};
+        columnsData = {};
     }
 
     for (let i = 0; i < excelFiles.target.files.length; i++) {

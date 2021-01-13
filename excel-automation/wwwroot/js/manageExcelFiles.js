@@ -1,6 +1,7 @@
 ﻿let excelFiles;
 let templateFiles;
-let filesObj = {};
+let columnsData = {};
+let filesData = {};
 
 function handleFileSelect(file, inputName, fileName) {
 
@@ -18,7 +19,7 @@ function handleFileSelect(file, inputName, fileName) {
                     };
                     reader.readAsBinaryString(file);
                 } else {
-                    //For IE Browser. 
+                    //For IE Browser.
                     reader.onload = function (e) {
                         var data = "";
                         var bytes = new Uint8Array(e.target.result);
@@ -51,21 +52,16 @@ function ProcessExcel(data, inputName, fileName) {
         return;
     }
 
-    filesObj[fileName] = {};
-
     //Fetch the name of First Sheet.
     var firstSheet = workbook.SheetNames[0];
 
     //Read all rows from First Sheet into an JSON array.
     var excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[firstSheet]);
+    filesData[firstSheet] = excelRows;
 
-    const filesData = [];
-
-    filesObj[fileName][firstSheet] = [];
+    columnsData[firstSheet] = [];
     Object.keys(excelRows[0]).forEach(function (key) {
-        filesData.push(key);
+        columnsData[firstSheet].push(key);
     });
-
-    filesObj[fileName][firstSheet] = filesData;
 };
 
