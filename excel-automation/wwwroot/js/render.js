@@ -43,7 +43,8 @@ async function processData() {
         //process excel files.
         await handleFileSelect(excelFiles.target.files[i], excelFiles.target.id, excelFiles.target.files[i].name);
     }
-    //process template file. 
+    //process template file.
+    console.log(templateFiles.target.files[0].name.split(".")[0]);
     handleFileSelect(templateFiles.target.files[0], templateFiles.target.id, templateFiles.target.files[0].name);
 
     toastr.options.closeButton = true;
