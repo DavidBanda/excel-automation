@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{33AFE548-8BDC-4870-A923-925D995E70A6}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="excel-automation/Views/Shared/_Layout.cshtml">
     <Files>
-      <File FileName="excel-automation/Views/Home/Index.cshtml" Line="78" Column="47" />
+      <File FileName="excel-automation/Views/Home/Index.cshtml" Line="10" Column="1" />
       <File FileName="excel-automation/wwwroot/js/render.js" Line="3" Column="16" />
       <File FileName="excel-automation/wwwroot/js/loadDataTable.js" Line="12" Column="25" />
-      <File FileName="excel-automation/Views/Shared/_Layout.cshtml" Line="17" Column="109" />
+      <File FileName="excel-automation/Views/Shared/_Layout.cshtml" Line="19" Column="88" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
