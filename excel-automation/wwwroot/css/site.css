@@ -66,11 +66,11 @@ a {
 }
 
 /*table properties*/
-.custom-select {
-    width: 10rem;
+.custom-select, .cell-size {
+    width: 10rem !important;
 }
 
-#div-table-link {
+#div-table-link{
     overflow-x: auto;
 }
 
@@ -132,7 +132,7 @@ body {
         height: auto;
     }
 
-    #render-button {
+    #render-file-button {
         width: 8rem;
     }
 }

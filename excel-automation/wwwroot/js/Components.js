@@ -1,5 +1,8 @@
 ﻿let createColumns = (strings) => {
     for (var key of strings) {
+        $("#data-table>thead>tr").append(`<th>
+                                            <div class="cell-size">${key['t']}</div>
+                                          </th>`);
         addColumn(key['t']);
     }
 }

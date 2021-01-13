@@ -21,4 +21,11 @@
     <Folder Include="wwwroot\excel\" />
     <Folder Include="wwwroot\templates\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\.DS_Store" />
+    <Content Remove="wwwroot\js\render.js" />
+    <Content Remove="wwwroot\js\inputFiles.js" />
+    <Content Remove="wwwroot\js\Components.js" />
+    <Content Remove="wwwroot\js\manageExcelFiles.js" />
+  </ItemGroup>
 </Project>

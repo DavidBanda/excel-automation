@@ -1,10 +1,12 @@
-﻿const renderButton = document.querySelector('#render-button');
+﻿const renderFileButton = document.querySelector('#render-file-button');
+const renderTableButton = document.querySelector('#render-table-button');
 const dataTable = document.getElementById('data-table');
 const originalColumnTable = document.getElementById("table-link").innerHTML;
 
 inputExcelFiles.addEventListener('change', addExcelFiles, false);
 inputLabelFiles.addEventListener('change', addTemplateFiles, false);
-renderButton.addEventListener('click', processData);
+renderFileButton.addEventListener('click', processData);
+renderTableButton.addEventListener('click', renderTableData, false);
 
 function addExcelFiles(evt) {
     excelFiles = evt;
@@ -18,8 +20,13 @@ function addTemplateFiles(evt) {
 
 function enableRenderButton() {
     if (excelFiles && templateFiles) {
-        renderButton.disabled = false;
+        renderFileButton.disabled = false;
     }
+}
+
+function renderTableData() {
+    loadDataTable();
+    document.querySelector('#render-table-div').hidden = false;
 }
 
 async function processData() {
@@ -27,6 +34,7 @@ async function processData() {
     if (document.querySelector('#div-table-link').hidden === false) {
         document.querySelector('#div-table-link').hidden = true;
         document.querySelector('#render-table-div').hidden = true;
+        document.querySelector('#div-render-button').hidden = true;
         document.getElementById("table-link").innerHTML = originalColumnTable;
         columnsData = {};
     }
@@ -42,5 +50,5 @@ async function processData() {
     toastr.success("The files has been loaded successfully!")
 
     document.querySelector('#div-table-link').hidden = false;
-    document.querySelector('#render-table-div').hidden = false;
+    document.querySelector('#div-render-button').hidden = false;
 }
