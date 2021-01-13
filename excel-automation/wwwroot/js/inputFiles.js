@@ -1,7 +1,7 @@
 ﻿// Label file name for excel files
 
-const inputExcelFiles = document.querySelector('.custom-input-excel');
-const labelExcelFiles = document.querySelector('.custom-label-excel');
+const inputExcelFiles = document.querySelector('#custom-input-excel');
+const labelExcelFiles = document.querySelector('#custom-label-excel');
 
 inputExcelFiles.addEventListener('change', (event) => {
     const filesNumber = event.target.files.length;
@@ -19,8 +19,8 @@ inputExcelFiles.addEventListener('change', (event) => {
 
 // Label file name for template files
 
-const inputLabelFiles = document.querySelector('.custom-input-template');
-const labelTemplateFiles = document.querySelector('.custom-label-template');
+const inputLabelFiles = document.querySelector('#custom-input-template');
+const labelTemplateFiles = document.querySelector('#custom-label-template');
 
 inputLabelFiles.addEventListener('change', (event) => {
     const filesNumber = event.target.files.length;

@@ -1,8 +1,9 @@
-﻿const uploadButton = document.querySelector('.upload-button');
+﻿const renderButton = document.querySelector('#render-button');
+const originalColumnTable = document.getElementById("table-link").innerHTML;
 
 inputExcelFiles.addEventListener('change', addExcelFiles, false);
 inputLabelFiles.addEventListener('change', addTemplateFiles, false);
-uploadButton.addEventListener('click', processData);
+renderButton.addEventListener('click', processData);
 
 function addExcelFiles(evt) {
     excelFiles = evt;
@@ -16,20 +17,29 @@ function addTemplateFiles(evt) {
 
 function enableRenderButton() {
     if (excelFiles && templateFiles) {
-        uploadButton.disabled = false;
+        renderButton.disabled = false;
     }
 }
 
 async function processData() {
 
-    for (let i = 0; i < excelFiles.target.files.length; i++) {
-        //process excel files
-        await handleFileSelect(excelFiles.target.files[i], excelFiles.target.className, excelFiles.target.files[i].name);
+    if (document.querySelector('#div-table-link').hidden === false) {
+        document.querySelector('#div-table-link').hidden = true;
+        document.querySelector('#render-table-div').hidden = true;
+        document.getElementById("table-link").innerHTML = originalColumnTable;
+        filesObj = {};
     }
-    //process template file
-    handleFileSelect(templateFiles.target.files[0], templateFiles.target.className, templateFiles.target.files[0].name);
 
-    toastr["success"]("The files has been uploaded successfully!")
-    document.querySelector('.divTableLink').hidden = false;
-    document.querySelector('.renderTableDiv').hidden = false;
+    for (let i = 0; i < excelFiles.target.files.length; i++) {
+        //process excel files.
+        await handleFileSelect(excelFiles.target.files[i], excelFiles.target.id, excelFiles.target.files[i].name);
+    }
+    //process template file. 
+    handleFileSelect(templateFiles.target.files[0], templateFiles.target.id, templateFiles.target.files[0].name);
+
+    toastr.options.closeButton = true;
+    toastr.success("The files has been loaded successfully!")
+
+    document.querySelector('#div-table-link').hidden = false;
+    document.querySelector('#render-table-div').hidden = false;
 }

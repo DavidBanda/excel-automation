@@ -31,19 +31,19 @@ a {
 
 /* img jabil background */
 
-.container-bg {
+#container-bg {
     position: fixed;
     z-index: -1;
     bottom: -3rem;
     left: -2rem;
 }
 
-.container-img {
+#container-img {
     opacity: .4;
     bottom: 0rem;
 }
 
-.img-bg {
+#img-bg {
     max-width: 30%;
     height: auto;
 }
@@ -58,8 +58,7 @@ a {
 }
 
 /*fit text inside the label*/
-.excel-form,
-.template-form {
+.file-input-form {
     display: block;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -71,7 +70,7 @@ a {
     width: 10rem;
 }
 
-.divTableLink {
+#div-table-link {
     overflow-x: auto;
 }
 
@@ -121,19 +120,19 @@ body {
 /* tablets */
 @media only screen and (min-width: 600px) {
 
-    .container-bg {
+    #container-bg {
         position: fixed;
         z-index: -1;
         bottom: -2rem;
         left: -1rem;
     }
 
-    .img-bg {
+    #img-bg {
         max-width: 40%;
         height: auto;
     }
 
-    .upload-button {
+    #render-button {
         width: 8rem;
     }
 }
@@ -145,14 +144,14 @@ body {
         font-size: 16px;
     }
 
-    .container-bg {
+    #container-bg {
         position: fixed;
         z-index: -1;
         bottom: -2rem;
         left: -1rem;
     }
 
-    .img-bg {
+    #img-bg {
         max-width: 32%;
         height: auto;
     }

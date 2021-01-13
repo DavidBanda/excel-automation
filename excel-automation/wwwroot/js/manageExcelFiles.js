@@ -1,6 +1,6 @@
 ﻿let excelFiles;
 let templateFiles;
-const filesObj = {};
+let filesObj = {};
 
 function handleFileSelect(file, inputName, fileName) {
 
@@ -30,10 +30,12 @@ function handleFileSelect(file, inputName, fileName) {
                     reader.readAsArrayBuffer(file);
                 }
             } else {
-                toastr["warning"]("This browser does not support HTML5.")
+                toastr.options.closeButton = true;
+                toastr.warning("This browser does not support HTML5.")
             }
         } else {
-            toastr["warning"]("Please upload a valid Excel file.")
+            toastr.options.closeButton = true;
+            toastr.warning("Please upload a valid Excel file.")
         }
     });
 }
@@ -50,23 +52,6 @@ function ProcessExcel(data, inputName, fileName) {
     }
 
     filesObj[fileName] = {};
-    //for (let sheetNumber = 0; sheetNumber < workbook.SheetNames.length; sheetNumber++) {
-    //    //Fetch the name of First Sheet.
-    //    var firstSheet = workbook.SheetNames[sheetNumber];
-
-    //    //Read all rows from First Sheet into an JSON array.
-    //    var excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[firstSheet]);
-
-    //    const filesData = [];
-
-    //    filesObj[fileName][firstSheet] = [];
-    //    Object.keys(excelRows[0]).forEach(function (key) {
-    //        filesData.push(key);
-    //    });
-
-    //    filesObj[fileName][firstSheet] = filesData;
-
-    //}
 
     //Fetch the name of First Sheet.
     var firstSheet = workbook.SheetNames[0];

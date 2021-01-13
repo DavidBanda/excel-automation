@@ -5,7 +5,7 @@
 }
 
 function addColumn(columnName) {
-    [...document.querySelectorAll('#tableLink tr')].forEach((row, i) => {
+    [...document.querySelectorAll('#table-link tr')].forEach((row, i) => {
         const cell = document.createElement(i ? "td" : "th");
         if (i === 0) {
             cell.append(columnName);

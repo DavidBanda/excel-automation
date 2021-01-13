@@ -18,25 +18,25 @@
         </div>
     </div>
     <div class="container row p-0 m-0">
-        <div class="excel-form form-group col-4 mr-3">
-            <label class="custom-label-excel custom-file-label" for="customFile">Choose excel file(s)</label>
-            <input  type="file" name="excel" class="custom-input-excel custom-file-input form-control" required multiple>
+        <div class="file-input-form form-group col-4 mr-3">
+            <label id="custom-label-excel" class="custom-file-label" for="customFile">Choose excel file(s)</label>
+            <input id="custom-input-excel" type="file" name="excel" class="custom-file-input form-control" required multiple>
         </div>
-        <div class="template-form form-group col-4">
-            <label class="custom-label-template custom-file-label" for="customFile">Choose template file</label>
-            <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" type="file" name="template" class="custom-input-template custom-file-input form-control" required>
+        <div class="file-input-form form-group col-4">
+            <label id="custom-label-template" class="custom-file-label" for="customFile">Choose template file</label>
+            <input id="custom-input-template" type="file" name="template" class="custom-file-input form-control" required>
         </div>
         <div class="form-group col-3">
-            <button class="upload-button btn btn-page form-control text-white" disabled>Render file(s)</button>
+            <button id="render-button" class="btn btn-page form-control text-white" disabled>Render file(s)</button>
         </div>
     </div>
 </div>
 
-<div class="divTableLink col-12 border p-3 pb-3 mb-4 mt-4" hidden>
+<div id="div-table-link" class="col-12 border p-3 pb-3 mb-4 mt-4" hidden>
     <div class="col-4">
         <h4 class="title-page pb-2">Template File</h4>
     </div>
-    <table id="tableLink" class="table table-striped table-bordered">
+    <table id="table-link" class="table table-striped table-bordered">
         <thead>
             <tr>
             </tr>
@@ -47,7 +47,7 @@
         </tbody>
     </table>
 </div>
-<div class="renderTableDiv container row p-0 m-0" hidden>
+<div id="render-table-div" class="container row p-0 m-0" hidden>
     <div class="container row p-0 m-0">
         <div class="col-4 mr-3">
         </div>
