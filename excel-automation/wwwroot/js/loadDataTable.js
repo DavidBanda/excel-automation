@@ -35,23 +35,35 @@ function loadDataTable() {
             {
                 extend: 'copy',
                 header: false,
-                title: null
+                title: null,
+                className: 'btn-primary',
             },
             {
                 extend: 'csv',
-                title: templateFiles.target.files[0].name.split(".")[0]
+                title: templateFiles.target.files[0].name.split(".")[0],
+                className: 'btn-primary',
             },
             {
                 extend: 'excel',
-                title: templateFiles.target.files[0].name.split(".")[0]
+                title: templateFiles.target.files[0].name.split(".")[0],
+                className: 'btn-primary',
             },
             {
                 extend: 'pdf',
-                title: templateFiles.target.files[0].name.split(".")[0]
+                title: templateFiles.target.files[0].name.split(".")[0],
+                className: 'btn-primary',
             },
             {
                 extend: 'print',
-                title: templateFiles.target.files[0].name.split(".")[0]
+                title: templateFiles.target.files[0].name.split(".")[0],
+                className: 'btn-primary',
+            },
+            {
+                text: 'Reload',
+                action: function () {
+                        location.reload();
+                },
+                className: 'btn-primary',
             },
         ],
         columnDefs: [{

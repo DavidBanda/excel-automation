@@ -8,6 +8,9 @@ inputLabelFiles.addEventListener('change', addTemplateFiles, false);
 renderFileButton.addEventListener('click', processData);
 renderTableButton.addEventListener('click', renderTableData, false);
 
+toastr.options.closeButton = true;
+toastr.options.newestOnTop = true;
+
 function addExcelFiles(evt) {
     excelFiles = evt;
     enableRenderButton();
@@ -27,6 +30,10 @@ function enableRenderButton() {
 function renderTableData() {
     loadDataTable();
     document.querySelector('#render-table-div').hidden = false;
+
+    renderFileButton.disabled = true;
+    renderTableButton.disabled = true;
+    toastr.success("The table has been rendered successfully!")
 }
 
 async function processData() {
@@ -46,13 +53,6 @@ async function processData() {
     //process template file.
     handleFileSelect(templateFiles.target.files[0], templateFiles.target.id, templateFiles.target.files[0].name);
 
-    console.log(typeof(filesData));
-    console.log(filesData);
-
-    console.log(typeof (filesData["Head Count 30 Noviembre 2020"]));
-    console.log(filesData["Head Count 30 Noviembre 2020"]);
-
-    toastr.options.closeButton = true;
     toastr.success("The files has been loaded successfully!")
 
     document.querySelector('#div-table-link').hidden = false;
