@@ -74,6 +74,11 @@ a {
     overflow-x: auto;
 }
 
+/*modify excel table*/
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0.3em;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

@@ -44,8 +44,13 @@ async function processData() {
         await handleFileSelect(excelFiles.target.files[i], excelFiles.target.id, excelFiles.target.files[i].name);
     }
     //process template file.
-    console.log(templateFiles.target.files[0].name.split(".")[0]);
     handleFileSelect(templateFiles.target.files[0], templateFiles.target.id, templateFiles.target.files[0].name);
+
+    console.log(typeof(filesData));
+    console.log(filesData);
+
+    console.log(typeof (filesData["Head Count 30 Noviembre 2020"]));
+    console.log(filesData["Head Count 30 Noviembre 2020"]);
 
     toastr.options.closeButton = true;
     toastr.success("The files has been loaded successfully!")

@@ -1,8 +1,36 @@
-﻿var dataTable2;
+﻿var table;
 
 function loadDataTable() {
-    dataTable2 = $('#data-table').DataTable({
-        dom: 'Bfrtip',
+    table = $('#data-table').DataTable({
+        data: filesData["Head Count 30 Noviembre 2020"],
+        columns: [
+            { data: 'No Work day' },
+            { data: 'No SAP/KRONOS' },
+            { data: 'NAME' },
+            { data: 'HIRING DATE' },
+            { data: 'SHIFT' },
+            { data: 'CLASS' },
+            { data: 'POSITION' },
+            { data: 'JOB  NUMBER' },
+            { data: 'JOB ' },
+            { data: 'PS GROUP' },
+            { data: 'CC' },
+            { data: 'DEPARTAMENTO' },
+            { data: 'CELULA' },
+            { data: 'AGREEMENT' },
+            { data: 'SUP´s ID' },
+            { data: 'SUPERVISOR' },
+            { data: 'CONTRACT END' },
+            { data: 'ANTIGÜEDAD EN PUESTO ACTUAL' },
+            { data: 'CUENTA DE CORREO' },
+            { data: 'CUENTA NT' },
+            { data: 'GENERO' },
+            { data: 'EDAD' },
+        ],
+        dom: "<'row dom_wrapper fh-fixedHeader col-sm col-md'B>" +
+        "<'row mt-3'<'col-sm col-md'l><'col-sm col-md'f>>" +
+        "<'row'<'col-sm col-md'tr>>" +
+            "<'row mt-2'<'col-sm col-md'i><'col-sm col-md'p>>",
         buttons: [
             {
                 extend: 'copy',
@@ -26,11 +54,15 @@ function loadDataTable() {
                 title: templateFiles.target.files[0].name.split(".")[0]
             },
         ],
-        "language": {
+        columnDefs: [{
+            "targets": '_all',
+            "defaultContent": ""
+        }],
+        language: {
             "emptyTable": "no data found"
         },
-        "scrollX": true,
-        "width": "100%"
+        scrollX: true,
+        width: "100%"
     });
 }
 
