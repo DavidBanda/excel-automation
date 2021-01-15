@@ -1,32 +1,14 @@
 ﻿var table;
 
 function loadDataTable() {
+    let arr = Object.keys(filesData["Head Count 30 Noviembre 2020"][0]);
+    arr.forEach(function (part, index) {
+        this[index] = { data: part };
+    }, arr);
+
     table = $('#data-table').DataTable({
         data: filesData["Head Count 30 Noviembre 2020"],
-        columns: [
-            { data: 'No Work day' },
-            { data: 'No SAP/KRONOS' },
-            { data: 'NAME' },
-            { data: 'HIRING DATE' },
-            { data: 'SHIFT' },
-            { data: 'CLASS' },
-            { data: 'POSITION' },
-            { data: 'JOB  NUMBER' },
-            { data: 'JOB ' },
-            { data: 'PS GROUP' },
-            { data: 'CC' },
-            { data: 'DEPARTAMENTO' },
-            { data: 'CELULA' },
-            { data: 'AGREEMENT' },
-            { data: 'SUP´s ID' },
-            { data: 'SUPERVISOR' },
-            { data: 'CONTRACT END' },
-            { data: 'ANTIGÜEDAD EN PUESTO ACTUAL' },
-            { data: 'CUENTA DE CORREO' },
-            { data: 'CUENTA NT' },
-            { data: 'GENERO' },
-            { data: 'EDAD' },
-        ],
+        columns: arr,
         dom: "<'row dom_wrapper fh-fixedHeader col-sm col-md'B>" +
         "<'row mt-3'<'col-sm col-md'l><'col-sm col-md'f>>" +
         "<'row'<'col-sm col-md'tr>>" +
@@ -77,5 +59,4 @@ function loadDataTable() {
         width: "100%"
     });
 }
-
 

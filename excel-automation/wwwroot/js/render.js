@@ -22,7 +22,7 @@ function addTemplateFiles(evt) {
 };
 
 function enableRenderButton() {
-    if (excelFiles && templateFiles) {
+    if (excelFiles && templateFiles && document.querySelector('#render-table-div').hidden === true) {
         renderFileButton.disabled = false;
     }
 }
