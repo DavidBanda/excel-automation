@@ -8,7 +8,7 @@ function loadDataTable() {
 
     table = $('#data-table').DataTable({
         data: filesData["Head Count 30 Noviembre 2020"],
-        columns: arr,
+        columns: selectedColumns,
         dom: "<'row dom_wrapper fh-fixedHeader col-sm col-md'B>" +
         "<'row mt-3'<'col-sm col-md'l><'col-sm col-md'f>>" +
         "<'row'<'col-sm col-md'tr>>" +
@@ -58,5 +58,12 @@ function loadDataTable() {
         scrollX: true,
         width: "100%"
     });
+}
+
+function columnsValues() {
+    var table = document.getElementById('table-link');
+    for (var opt = 0; opt < table.rows[1].cells.length; opt++) {
+        console.log(table.rows[1].cells[opt]);
+    }
 }
 

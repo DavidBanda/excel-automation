@@ -2,6 +2,7 @@
 const renderTableButton = document.querySelector('#render-table-button');
 const dataTable = document.getElementById('data-table');
 const originalColumnTable = document.getElementById("table-link").innerHTML;
+let selectedColumns = [];
 
 inputExcelFiles.addEventListener('change', addExcelFiles, false);
 inputLabelFiles.addEventListener('change', addTemplateFiles, false);
@@ -58,3 +59,10 @@ async function processData() {
     document.querySelector('#div-table-link').hidden = false;
     document.querySelector('#div-render-button').hidden = false;
 }
+
+function getValue(evt) {
+    const id = evt.target.id;
+    const nameColumn = evt.target.value.split("|")[1];
+    selectedColumns[id] = { data: nameColumn };
+}
+
