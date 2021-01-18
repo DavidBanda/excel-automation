@@ -1,15 +1,15 @@
-﻿// Label file name for excel files
+﻿// Label the input for the excel files
 
 const inputExcelFiles = document.querySelector('#custom-input-excel');
-const labelExcelFiles = document.querySelector('#custom-label-excel');
 
 inputExcelFiles.addEventListener('change', (event) => {
     const filesNumber = event.target.files.length;
+    const labelExcelFiles = document.querySelector('#custom-label-excel');
 
-    if (filesNumber == 1) {
+    if (filesNumber === 1) {
         labelExcelFiles.innerText = event.target.files.item(0).name;
         return;
-    } else if (filesNumber == 0) {
+    } else if (filesNumber === 0) {
         labelExcelFiles.innerText = "Choose excel file(s)";
         return;
     }
@@ -17,19 +17,18 @@ inputExcelFiles.addEventListener('change', (event) => {
     labelExcelFiles.innerText = `${filesNumber} file(s) selected`;
 })
 
-// Label file name for template files
+// Label the input for the template file
 
-const inputLabelFiles = document.querySelector('#custom-input-template');
-const labelTemplateFiles = document.querySelector('#custom-label-template');
+const inputTemplateFile = document.querySelector('#custom-input-template');
 
-inputLabelFiles.addEventListener('change', (event) => {
+inputTemplateFile.addEventListener('change', (event) => {
     const filesNumber = event.target.files.length;
+    const labelTemplateFiles = document.querySelector('#custom-label-template');
 
-    if (filesNumber >= 1) {
+    if (filesNumber === 1) {
         labelTemplateFiles.innerText = event.target.files.item(0).name;
         return;
-    } else {
-        labelTemplateFiles.innerText = "Choose template file(s)";
-        return;
     }
+
+    labelTemplateFiles.innerText = "Choose template file";
 })

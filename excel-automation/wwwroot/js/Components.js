@@ -1,16 +1,21 @@
 ﻿let createColumns = (strings) => {
+    //create the columns of each table, the table link and the datatable
     let columnNumber = 0;
     for (var key of strings) {
-        selectedColumns.push(0);
+        selectedColumns["userSelectedColumns"].push(0);
+        selectedColumns["fileNameWithColumnName"].push(0);
+        // add a column th for each string to the data table 
         $("#data-table>thead>tr").append(`<th>
                                             <div class="cell-size">${key['t']}</div>
                                           </th>`);
+        // add columns th and td to the table link
         addColumn(key['t'], columnNumber);
         columnNumber++;
     }
 }
 
 function addColumn(columnName, columnNumber) {
+    // add a column in the last position to the table
     [...document.querySelectorAll('#table-link tr')].forEach((row, i) => {
         const cell = document.createElement(i ? "td" : "th");
         if (i === 0) {
@@ -25,11 +30,10 @@ function addColumn(columnName, columnNumber) {
 let optionsComponent = (columnNumber) => {
     const div = document.createElement("div");
     div.setAttribute("class", "col-auto");
+
     const select = document.createElement("select");
-    select.setAttribute("id", `${columnNumber}`);
     select.setAttribute("class", "custom-select");
-    //select.setAttribute("onchange", "getValue(this)");
-    select.addEventListener('change', getValue, false);
+    select.addEventListener('change', getValue.bind(event, columnNumber), false);
 
     const defaultOption = document.createElement("option");
     defaultOption.append("-- Select Column --");
@@ -44,7 +48,7 @@ let optionsComponent = (columnNumber) => {
 
         for (const value of columnsData[key]) {
             const option = document.createElement("option");
-            option.setAttribute("value", `${key}|${value}`);
+            option.setAttribute("value", `{ "${key}": "${value}" }`);
 
             option.append(value);
             optgroup.appendChild(option);
