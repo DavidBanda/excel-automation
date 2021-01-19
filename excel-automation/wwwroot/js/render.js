@@ -72,15 +72,23 @@ async function processData() {
         columnsData = {};
     }
 
-    //process the excel files data using async await
-    for (let i = 0; i < excelFiles.target.files.length; i++) {
-        //process excel files. 
-        await handleFileSelect(excelFiles.target.files[i], excelFiles.target.id, excelFiles.target.files[i].name);
-    }
-    //process template file.
-    await handleFileSelect(templateFile.target.files[0], templateFile.target.id, templateFile.target.files[0].name);
+    //make the async / await process parallel
+    const files = Array.from(excelFiles.target.files);
+    let promises = files.map(async (file) => {
+        console.log(`${file.name} processing`);
+        await handleFileSelect(file, "", file.name)
+    });
 
-    toastr.success("The files has been loaded successfully!")
+    let finalResult = 0;
+    for (const promise of promises) {
+        finalResult += (await promise);
+    }
+    finalResult;
+
+    //process template file.
+    await handleFileSelect(templateFile.target.files[0], "custom-input-template", templateFile.target.files[0].name);
+
+    toastr.success("The files has been loaded successfully!");
  
     divTableLink.hidden = false;
     divRenderButton.hidden = false;

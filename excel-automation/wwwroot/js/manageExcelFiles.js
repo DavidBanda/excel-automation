@@ -60,6 +60,8 @@ function ProcessExcel(data, inputName, fileName) {
     // store the data of the excel file 
     filesData[firstSheet] = excelRows;
 
+    console.log(`${fileName} processed`);
+
     //store the columns of the excel file  
     columnsData[firstSheet] = [];
     Object.keys(excelRows[0]).forEach(function (key) {
